@@ -30,7 +30,6 @@ function TodoForm({initialFormData, handleSave}) {
   function handleSubmit(evt) {
     evt.preventDefault()
     handleSave(formData);
-
    }
 
   return (

@@ -21,7 +21,9 @@ function EditableTodo({todo, update, remove}) {
   }
 
   /** Call remove fn passed to this. */
-  function handleDelete() { }
+  function handleDelete() {
+    remove(todo.id)
+   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(updatedTodo) {
@@ -31,21 +33,23 @@ function EditableTodo({todo, update, remove}) {
 
   return (
       <div className="EditableTodo">
-                {isEditing && <TodoForm initialFormData={todo} handleSave={handleSave}/>}
+                {isEditing && <TodoForm key={`f-${todo.id}`} initialFormData={todo} handleSave={handleSave}/>}
                 {!isEditing && <div className="mb-3">
-                  <div className="float-end text-sm-end">
+                  <div className="float-end text-sm-end" key={`d-${todo.id}`}>
                     <button
+                        key={`be-${todo.id}`}
                         className="EditableTodo-toggle btn-link btn btn-sm"
                         onClick={toggleEdit}>
                       Edit
                     </button>
                     <button
+                        key={`bd-${todo.id}`}
                         className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
                         onClick={handleDelete}>
                       Del
                     </button>
                   </div>
-                  <Todo />
+                  <Todo todo={todo} />
                 </div>}
       </div>
   );

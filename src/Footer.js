@@ -4,7 +4,7 @@ import React from 'react';
 
 function Footer() {
   return (
-      <footer className="App-footer mt-5 text-muted">
+      <footer className="App-footer mt-5 text-muted" key="footer">
         <small>
           Prødutïv is copyright ©2020 by Flüffy Data Enterprises, Inc.
         </small>

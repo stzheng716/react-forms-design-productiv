@@ -19,7 +19,7 @@ import TodoForm from "./TodoForm";
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos)
 
-  const blankFormData = {title: "", description: "", priority: ""}
+  const blankFormData = {title: "", description: "", priority: 1}
 
   /** add a new todo to list */
   function create(newTodo) {
@@ -35,6 +35,7 @@ function TodoApp({ initialTodos }) {
 
   /** delete a todo by id */
   function remove(id) {
+    console.log("todo id", id)
     setTodos(todos => todos.filter(
       (todo) => todo.id !== id
     ))
@@ -45,7 +46,10 @@ function TodoApp({ initialTodos }) {
       <div className="row">
 
         <div className="col-md-6">
-          {todos.length > 0 && <EditableTodoList todos={todos} update={update} remove={remove} />}
+          {todos.length > 0 && <EditableTodoList 
+          todos={todos} 
+          update={update} 
+          remove={remove} />}
           {todos.length === 0 && <span className="text-muted">You have no todos.</span>}
         </div>
 
