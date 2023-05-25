@@ -19,7 +19,7 @@ import TodoForm from "./TodoForm";
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos)
 
-  const blankFormData = {title: "", description: ""}
+  const blankFormData = {title: "", description: "", priority: ""}
 
   /** add a new todo to list */
   function create(newTodo) {

@@ -10,15 +10,27 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
+// title, description, priority
+
 function TodoForm({initialFormData, handleSave}) {
+  console.log("input", initialFormData.title);
+  const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */
   function handleChange(evt) {
+    const { name, value } = evt.target;
+    setFormData(fData => ({
+      ...fData,
+      [name]: value,
+    }));
+    console.log("formData",formData);
    }
 
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault()
+    handleSave(formData);
+
    }
 
   return (
@@ -31,7 +43,7 @@ function TodoForm({initialFormData, handleSave}) {
               className="form-control"
               placeholder="Title"
               onChange={handleChange}
-              value="FIXME"
+              value={formData.title}
               aria-label="Title"
           />
         </div>
@@ -43,7 +55,7 @@ function TodoForm({initialFormData, handleSave}) {
               className="form-control"
               placeholder="Description"
               onChange={handleChange}
-              value="FIXME"
+              value={formData.description}
               aria-label="Description"
           />
         </div>
@@ -55,7 +67,7 @@ function TodoForm({initialFormData, handleSave}) {
             </label>
             <select id="newTodo-priority"
                     name="priority"
-                    value="FIXME"
+                    value={formData.priority}
                     onChange={handleChange}
                     className="form-control form-control-sm d-inline-flex"
             >
