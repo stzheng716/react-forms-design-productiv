@@ -9,6 +9,9 @@ import TodoForm from "./TodoForm";
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
  *
+ * States
+ * - isEditing: determines whether or not to display edit form
+ *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
@@ -33,24 +36,26 @@ function EditableTodo({todo, update, remove}) {
 
   return (
       <div className="EditableTodo">
-                {isEditing && <TodoForm key={`f-${todo.id}`} initialFormData={todo} handleSave={handleSave}/>}
-                {!isEditing && <div className="mb-3">
-                  <div className="float-end text-sm-end" key={`d-${todo.id}`}>
-                    <button
-                        key={`be-${todo.id}`}
-                        className="EditableTodo-toggle btn-link btn btn-sm"
-                        onClick={toggleEdit}>
-                      Edit
-                    </button>
-                    <button
-                        key={`bd-${todo.id}`}
-                        className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
-                        onClick={handleDelete}>
-                      Del
-                    </button>
-                  </div>
-                  <Todo todo={todo} />
-                </div>}
+                {isEditing &&
+                    <TodoForm
+                        initialFormData={todo}
+                        handleSave={handleSave}/>}
+                {!isEditing &&
+                    <div className="mb-3">
+                      <div className="float-end text-sm-end">
+                        <button
+                            className="EditableTodo-toggle btn-link btn btn-sm"
+                            onClick={toggleEdit}>
+                          Edit
+                        </button>
+                        <button
+                            className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+                            onClick={handleDelete}>
+                          Del
+                        </button>
+                      </div>
+                      <Todo todo={todo} />
+                    </div>}
       </div>
   );
 }

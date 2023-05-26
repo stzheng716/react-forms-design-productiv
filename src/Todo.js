@@ -9,7 +9,6 @@ import React from "react";
  **/
 
 function Todo({todo}) {
-  console.log("TODO priority", todo.priority)
   return (
       <div className="Todo">
         <div><b>{todo.title}</b> <small>{`Priority: ${todo.priority}`}</small></div>

@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 
 
-/** Form for adding.
+/** Form for adding/updating a todo.
  *
  * Props:
  * - initialFormData
  * - handleSave: function to call in parent.
  *
+ * States:
+ * - formData: data (names, values) for form [either prefilled or brand new]
+ *
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
 // title, description, priority
+const BLANK_FORM_DATA = {title: "", description: "", priority: 1};
 
-function TodoForm({initialFormData, handleSave}) {
-  console.log("input", initialFormData.title);
+function TodoForm({initialFormData=BLANK_FORM_DATA, handleSave}) {
   const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */
@@ -23,13 +26,13 @@ function TodoForm({initialFormData, handleSave}) {
       ...fData,
       [name]: value,
     }));
-    console.log("formData",formData);
    }
 
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault()
     handleSave(formData);
+    setFormData(initialFormData);
    }
 
   return (
