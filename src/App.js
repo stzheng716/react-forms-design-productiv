@@ -22,24 +22,6 @@ function App() {
         <section className="container mt-4">
           <TodoApp initialTodos={[
             {
-              id: 2,
-              title: "Adding Todo",
-              description: "Test that todo(verify w/ title) isn't there, add it, verify it's there",
-              priority: 2,
-            },
-            {
-              id: 3,
-              title: "Deleting Todo",
-              description: "Test that todo(verify w/ title) IS there, delete, and verify absent",
-              priority: 2,
-            },
-            {
-              id: 4,
-              title: "Edit Todo",
-              description: "Test that todo(verify w/ title) IS there, update, and verify update with SAME id. (update title, description, priority)",
-              priority: 2,
-            },
-            {
               id: 5,
               title: "TopTodo updates after deleting current TopTodo",
               description: "Test that TopTodo present, delete top, and verify different todo is new Top",
