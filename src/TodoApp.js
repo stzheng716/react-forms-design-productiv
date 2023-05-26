@@ -19,8 +19,6 @@ import TodoForm from "./TodoForm";
 function TodoApp({ initialTodos=[] }) {
   const [todos, setTodos] = useState(initialTodos)
 
-  // const blankFormData = {title: "", description: "", priority: 1} //TODO: move to Form
-
   /** add a new todo to list */
   function create(newTodo) {
     setTodos(todos => [...todos, {...newTodo, id: uuid()}])

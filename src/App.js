@@ -22,12 +22,6 @@ function App() {
         <section className="container mt-4">
           <TodoApp initialTodos={[
             {
-              id: 1,
-              title: "smoketests",
-              description: "write smoketests for TodoApp, TopTodo, Todo, EdibleTodo, EdibleTodoList, TodoForm",
-              priority: 1,
-            },
-            {
               id: 2,
               title: "Adding Todo",
               description: "Test that todo(verify w/ title) isn't there, add it, verify it's there",
