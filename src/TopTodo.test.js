@@ -22,3 +22,8 @@ beforeEach(function () {
 it("TopTodo renders without crashing", function () {
     render(<TopTodo todos={testTodos} />);
 });
+
+it("Test to ensure top todo renders with highest priority", function () {
+    const {container, debug} = render(<TopTodo todos={testTodos} />);
+    expect(container).toContainHTML("testTodo1")
+});

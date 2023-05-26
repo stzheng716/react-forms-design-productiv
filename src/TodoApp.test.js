@@ -89,6 +89,12 @@ it("Test TopTodo Added", function () {
     topTodo = container.querySelector("#topTodo");
     expect(topTodo).toContainHTML("test title");
 
+    fireEvent.change(title, {target: { value: "new top todo title" }});
+    fireEvent.change(description, {target: { value: "test description" }});
+    fireEvent.change(priority, {target: { value: 1 }});
+    fireEvent.submit(container.querySelector(".NewTodoForm-addBtn"))
+
+    expect(topTodo).toContainHTML("new top todo title");
 });
 
 it("Test TopTodo Deleted", function () {

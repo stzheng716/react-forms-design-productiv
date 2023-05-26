@@ -21,18 +21,6 @@ function App() {
 
         <section className="container mt-4">
           <TodoApp initialTodos={[
-            {
-              id: 5,
-              title: "TopTodo updates after deleting current TopTodo",
-              description: "Test that TopTodo present, delete top, and verify different todo is new Top",
-              priority: 3,
-            },
-            {
-              id: 6,
-              title: "Clicking Edit Button",
-              description: "Test that edit form not present, simulate click edit button, verify edit form present",
-              priority: 3,
-            }
           ]} />
 
           <Footer />
