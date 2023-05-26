@@ -20,7 +20,7 @@ it("TodoApp renders without crashing", function () {
 });
 
 it("Test that todo(verify w/ title) isn't there, add it, verify it's there", function () {
-    debug(container)
+
     expect(container).toContainHTML("You have no todos.")
     title.value = "test title"
     description.value = "test description"
@@ -28,3 +28,16 @@ it("Test that todo(verify w/ title) isn't there, add it, verify it's there", fun
     fireEvent.submit(container.querySelector(".NewTodoForm-addBtn"))
     expect(container).not.toContainHTML("You have no todos.")
 });
+
+it("Test that todo(verify w/ title) IS there, delete, and verify absent", function () {
+
+    expect(container).toContainHTML("You have no todos.")
+    title.value = "test title"
+    description.value = "test description"
+    priority.value = "test priority"
+    fireEvent.submit(container.querySelector(".NewTodoForm-addBtn"))
+    expect(container).not.toContainHTML("You have no todos.")
+    fireEvent.click(container.querySelector(".EditableTodo-delBtn"))
+    expect(container).toContainHTML("You have no todos.")
+});
+
